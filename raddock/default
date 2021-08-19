@@ -1,0 +1,18 @@
+server default {
+
+listen {
+    type = auth
+    ipaddr = *
+    port = 0
+}
+
+authorize {
+    preprocess
+    files
+    update control {
+        Proxy-to-Realm := "network.example"
+    }
+    pap
+}
+
+}

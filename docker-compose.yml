@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+    raddock:
+        image: freeradius/freeradius-server:3.0.20
+        command: /usr/sbin/freeradius -xxx -lstdout -f
+        volumes:
+           - ./raddock/default:/etc/freeradius/sites-available/default
+           - ./raddock/proxy.conf:/etc/freeradius/proxy.conf
+           - ./raddock/clients.conf:/etc/freeradius/clients.conf
+        ports:
+           - 1812:1812/udp
+           - 1813:1813/udp
+           - 3799:3799/udp
+        restart: always
+        network_mode: host
