@@ -1,13 +1,15 @@
-# Radius proxy
+# RADIUS proxy
 
 ## Описание
-Docker ready решение для разворачивания простого прокси radius auth запросов.  
+
+Docker ready решение для разворачивания простого прокси RADIUS auth запросов.  
 Внутри есть простой скрипт для настройки доступа к конечному радиус серверу, а также простейший менеджмент клиентов.
 
 ## Утилита (raddock/radproxy.sh)
 
 Из зависимостей - sudo, sed  
 Редактирует clients.conf, а также proxy.conf
+
 ```
 radproxy cli config utility
 
@@ -75,3 +77,7 @@ realm network.example {
 
 Данная логика так и не была реализована по ненадобности, но в основном все достигается с помощью мощного [Unlang](https://networkradius.com/doc/current/unlang/home.html), что лежит в основе FreeRadius, а именно через директиву [update](https://networkradius.com/doc/current/unlang/update.html).  
 Используя возможность выстраивать логику привычными стейтментами можно подменять/добавлять аттрибуты не прибегая к сторонним языковым прослойкам почти в любом кейсе.
+
+## Copyrights
+
+Затюнено [mintyleaf](https://github.com/mintyleaf) в 2021 для Wimark. 
